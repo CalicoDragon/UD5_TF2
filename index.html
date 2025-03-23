@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://www.teamfortress.com/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Team Fortress 2 - Free-to-Play</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="main.js" defer></script>
+  </head>
+  <body>
+    <div class="title">
+      <img src="headline_f2p.png" />
+      <a
+        class="getItButton"
+        href="https://store.steampowered.com/app/440/Team_Fortress_2/"
+        target="_blank"
+        ><img
+          onmouseover="this.src='button_getit_2.png'"
+          onmouseleave="this.src='button_getit_1.png'"
+          src="button_getit_1.png"
+      /></a>
+    </div>
+    <div class="pageContainer">
+      <div class="main">
+        <div class="videoArea">
+          <img class="videoBG" src="topper.png" alt="image background video" />
+          <div class="video">
+            <iframe
+              class="video"
+              height="390"
+              width="640"
+              frameborder="0"
+              src="https://www.youtube.com/embed/eQ8duKs2Plw"
+            >
+            </iframe>
+          </div>
+        </div>
+        <div class="quiz">
+          <h1>Which mercenary are you?</h1>
+
+          <div class="bar"><div class="barFill" id="quiz-bar"></div></div>
+
+          <div class="question-container" id="question-container"></div>
+        </div>
+      </div>
+      <div class="footer">
+        <img class="footerLogo" src="footer_logo.png" />
+        <p>
+          © Valve Corporation, all rights reserved. Valve, the Valve logo,
+          Steam, the Steam logo, Team Fortress, the Team Fortress logo are
+          trademarks and/or registered trademarks of Valve Corporation.
+        </p>
+      </div>
+    </div>
+    <div class="bgBottom"></div>
+  </body>
+</html>
