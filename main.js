@@ -1,5 +1,6 @@
 import { questions } from "./questions.js";
 
+// Objeto con los puntos por pj
 const mercCount = {
   scout: 0,
   soldier: 0,
@@ -17,27 +18,27 @@ const questionContainer = document.getElementById("question-container");
 
 let index = -1;
 
+// Metodo que ejecuta los botones de respuesta que direcciona al resto de metodos principalmente.
 export const sendAnswer = (n) => {
-  if (index >= 0) countPoints(questions[index].answers[n].mercenary);
+  if (index >= 0) countPoints(questions[index].answers[n].mercenary); // cuenta los puntos antes de ir a la sig pregunta
 
   index++;
 
   quizBar.style.width = `${(index * 100) / questions.length}%`;
 
-  if (index >= questions.length) return showResult();
-
-  console.log(n, index);
+  if (index >= questions.length) return showResult(); //si no hay mas preguntas, no se ejecuta nextQuestion y se ejecuta showResult
 
   nextQuestion();
 };
 
+// Se inyecta en el HTML (questionContainer) la pregunta y los botones de respuesta
 const nextQuestion = () => {
   questionContainer.innerHTML = `
   <h2 class="question" id="question">
       ${questions[index].text}
   </h2>
   <div class="answer-container" id="answer-container">
-    ${questions[index].answers
+    ${questions[index].answers //.map loop para introducir los botones 1 por respuesta
       .map((answer, i) => {
         return `
       <button type="button" class="btn answer">
@@ -45,10 +46,11 @@ const nextQuestion = () => {
       </button>
       `;
       })
-      .join("")}
+      .join("")} 
   </div>
-`;
+`; // .join("") sirve porque .map hacia el return de los botones con comas
 
+  // AddEventListener de todos los botones a sendAnswer cuando se hace click
   const btnList = [...document.getElementsByClassName("answer")];
 
   btnList.forEach((btn, i) => {
@@ -56,6 +58,7 @@ const nextQuestion = () => {
   });
 };
 
+// Metodo para cuando no hayan mas preguntas, calcula el mercenario con mas puntos y inyecta en questionContainer el html del resultado
 const showResult = () => {
   let yourMerc = "scout";
 
@@ -75,8 +78,7 @@ const countPoints = (mercs) => {
   mercs.forEach((merc) => {
     mercCount[merc] += 1;
   });
-
-  console.log(mercCount);
 };
 
+// Para la primera insercion de la primera pregunta
 sendAnswer([]);
