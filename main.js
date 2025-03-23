@@ -1,29 +1,4 @@
-const questions = [
-  {
-    text: "Do you prefer explosives or fire?",
-    answers: [
-      { text: "Explosives, aye!", mercenary: ["soldier", "demoman"] },
-      { text: "Mhhhm!! (fire!)", mercenary: ["pyro"] },
-      { text: "Neither!", mercenary: ["heavy", "sniper", "medic"] },
-      {
-        text: "I hate them with my very soul...",
-        mercenary: ["spy", "scout", "engineer"],
-      },
-    ],
-  },
-  {
-    text: "ayo?",
-    answers: [
-      { text: "Explosives, aye!", mercenary: ["soldier", "demoman"] },
-      { text: "Mhhhm!! (fire!)", mercenary: ["pyro"] },
-      { text: "Neither!", mercenary: ["heavy", "sniper", "medic"] },
-      {
-        text: "I hate them with my very soul...",
-        mercenary: ["spy", "scout", "engineer"],
-      },
-    ],
-  },
-];
+import { questions } from "./questions.js";
 
 const mercCount = {
   scout: 0,
@@ -65,7 +40,7 @@ const nextQuestion = () => {
     ${questions[index].answers
       .map((answer, i) => {
         return `
-      <button type="button" class="btn answer" onclick="sendAnswer(${i})">
+      <button type="button" class="btn answer">
         ${answer.text}
       </button>
       `;
@@ -73,6 +48,12 @@ const nextQuestion = () => {
       .join("")}
   </div>
 `;
+
+  const btnList = [...document.getElementsByClassName("answer")];
+
+  btnList.forEach((btn, i) => {
+    btn.addEventListener("click", () => sendAnswer(i));
+  });
 };
 
 const showResult = () => {
