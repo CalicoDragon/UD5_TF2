@@ -65,7 +65,10 @@ const showResult = () => {
     }
   }
 
-  questionContainer.innerHTML = "te toco este pj: " + yourMerc;
+  questionContainer.innerHTML = `
+  <img class="result-class" src="img/${yourMerc}.png" />
+  <h2>You got ${yourMerc}!</h2>
+  `;
 };
 
 const countPoints = (mercs) => {

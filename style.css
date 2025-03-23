@@ -130,6 +130,13 @@ body {
   background-color: #dad8d8;
 }
 
+.result-class {
+  height: 250px;
+  width: auto;
+  object-fit: contain;
+  margin: 10px auto;
+}
+
 .footer {
   display: flex;
   width: min(889px, 100%);
@@ -166,6 +173,10 @@ body {
   .answer-container {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .result-class {
+    height: 400px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -180,6 +191,10 @@ body {
   .video {
     width: 640px;
     height: 390px;
+  }
+
+  .result-class {
+    height: 500px;
   }
 
   .bgBottom {
