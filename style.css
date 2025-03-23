@@ -22,7 +22,7 @@ body {
   background: #252221;
   font-family: Arial, Helvetica, sans-serif;
   color: #363636;
-  background-image: url(bg_repeat.png);
+  background-image: url(img/bg_repeat.png);
   background-repeat: repeat-y;
   background-position: top center;
 }
@@ -147,7 +147,7 @@ body {
 }
 
 .bgBottom {
-  background-image: url(bg_bottom.png);
+  background-image: url(img/bg_bottom.png);
   background-repeat: no-repeat;
   background-position: center;
   height: 316px;
